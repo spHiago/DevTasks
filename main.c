@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 int main()
 {
@@ -115,8 +116,47 @@ int main()
         }
 
         case 4:
-            printf("\nRemover tarefa\n");
+        {
+
+            int numero;
+
+            printf("\n========== REMOVER TAREFA ==========\n");
+
+            if (totalTarefas == 0)
+            {
+
+                printf("\nNenhuma tarefa cadastrada.\n");
+            }
+            else
+            {
+
+                printf("\nDigite o numero da tarefa: ");
+                scanf("%d", &numero);
+
+                if (numero >= 1 && numero <= totalTarefas)
+                {
+
+                    for (int i = numero - 1; i < totalTarefas - 1; i++)
+                    {
+
+                        strcpy(tarefas[i], tarefas[i + 1]);
+
+                        concluida[i] = concluida[i + 1];
+                    }
+
+                    totalTarefas--;
+
+                    printf("\nTarefa removida com sucesso!");
+                }
+                else
+                {
+
+                    printf("\nNumero de tarefa invalido!");
+                }
+            }
+
             break;
+        }
 
         case 0:
             printf("\nEncerrando DevTasks...\n");
