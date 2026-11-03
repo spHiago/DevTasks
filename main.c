@@ -175,6 +175,6 @@ int main()
         }
 
     } while (opcao != 0);
-
+    printf("\nObrigado por usar o codigo!\n");
     return 0;
 }
