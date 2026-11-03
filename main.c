@@ -8,6 +8,7 @@ int main()
 
     char tarefas[100][100];
     int totalTarefas = 0;
+    int concluida[100] = {0};
 
     do
     {
@@ -42,6 +43,7 @@ int main()
                 scanf(" %99[^\n]", tarefas[totalTarefas]);
 
                 totalTarefas++;
+                concluida[totalTarefas - 1] = 0;
 
                 printf("\nTarefa cadastrada com sucesso!");
             }
@@ -68,15 +70,49 @@ int main()
                 for (int i = 0; i < totalTarefas; i++)
                 {
 
-                    printf("[%d] %s\n", i + 1, tarefas[i]);
+                    printf("[%d] %s - %s\n",
+                           i + 1,
+                           tarefas[i],
+                           concluida[i] ? "Concluida" : "Pendente");
                 }
             }
 
             break;
 
         case 3:
-            printf("\nConcluir tarefa\n");
+        {
+
+            int numero;
+
+            printf("\n========== CONCLUIR TAREFA ==========\n");
+
+            if (totalTarefas == 0)
+            {
+
+                printf("\nNenhuma tarefa cadastrada.\n");
+            }
+            else
+            {
+
+                printf("\nDigite o numero da tarefa: ");
+                scanf("%d", &numero);
+
+                if (numero >= 1 && numero <= totalTarefas)
+                {
+
+                    concluida[numero - 1] = 1;
+
+                    printf("\nTarefa concluida com sucesso!");
+                }
+                else
+                {
+
+                    printf("\nNumero de tarefa invalido!");
+                }
+            }
+
             break;
+        }
 
         case 4:
             printf("\nRemover tarefa\n");
