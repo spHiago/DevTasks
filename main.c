@@ -1,14 +1,16 @@
-#include <stdio.h> 
+#include <stdio.h>
 #include <stdlib.h>
 
-int main() {
+int main()
+{
 
     int opcao;
 
     char tarefas[100][100];
     int totalTarefas = 0;
 
-    do {
+    do
+    {
 
         system("cls");
 
@@ -27,50 +29,70 @@ int main() {
         printf(" Escolha uma opcao: ");
         scanf("%d", &opcao);
 
-        switch (opcao) {
+        switch (opcao)
+        {
 
-           case 1:
+        case 1:
 
-    if (totalTarefas < 100) {
+            if (totalTarefas < 100)
+            {
 
-        printf("\nDigite o nome da tarefa: ");
+                printf("\nDigite o nome da tarefa: ");
 
-        scanf(" %99[^\n]", tarefas[totalTarefas]);
+                scanf(" %99[^\n]", tarefas[totalTarefas]);
 
-        totalTarefas++;
+                totalTarefas++;
 
-        printf("\nTarefa cadastrada com sucesso!");
+                printf("\nTarefa cadastrada com sucesso!");
+            }
+            else
+            {
 
-    } else {
+                printf("\nLimite de tarefas atingido!");
+            }
 
-        printf("\nLimite de tarefas atingido!");
+            break;
 
-    }
+        case 2:
 
-    break;
+            printf("\n========== MINHAS TAREFAS ==========\n\n");
 
-            case 2:
-                printf("\nListar tarefas\n");
-                break;
+            if (totalTarefas == 0)
+            {
 
-            case 3:
-                printf("\nConcluir tarefa\n");
-                break;
+                printf("Nenhuma tarefa cadastrada.\n");
+            }
+            else
+            {
 
-            case 4:
-                printf("\nRemover tarefa\n");
-                break;
+                for (int i = 0; i < totalTarefas; i++)
+                {
 
-            case 0:
-                printf("\nEncerrando DevTasks...\n");
-                break;
+                    printf("[%d] %s\n", i + 1, tarefas[i]);
+                }
+            }
 
-            default:
-                printf("\nOpcao invalida!\n");
-                break;
+            break;
+
+        case 3:
+            printf("\nConcluir tarefa\n");
+            break;
+
+        case 4:
+            printf("\nRemover tarefa\n");
+            break;
+
+        case 0:
+            printf("\nEncerrando DevTasks...\n");
+            break;
+
+        default:
+            printf("\nOpcao invalida!\n");
+            break;
         }
 
-        if (opcao != 0) {
+        if (opcao != 0)
+        {
             printf("\nPressione ENTER para continuar...");
             getchar();
             getchar();
