@@ -39,6 +39,7 @@ int main()
             break;
 
         case 2:
+            //Adição da função listar tarefaz
             printf("\n========== MINHAS TAREFAS ==========\n\n");
 
             if (totalTarefas == 0)
