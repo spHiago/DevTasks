@@ -4,6 +4,7 @@
 #include <string.h>
 
 void adicionarTarefas (char tarefas[100][100], int *totalTarefas, int concluida[100]);
+void listartarefas (char lista[100][100], int *listatarefas, int concluido[100]);
 
 int main()
 {
@@ -38,6 +39,7 @@ int main()
             break;
 
         case 2:
+            //Adição da função listar tarefaz
             printf("\n========== MINHAS TAREFAS ==========\n\n");
 
             if (totalTarefas == 0)
